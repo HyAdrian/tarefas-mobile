@@ -1,2 +1,6 @@
 # tarefas-mobile
-bgl de mobile
+
+Faça:
+
+npm install
+npx expo start
