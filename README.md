@@ -3,5 +3,5 @@ bgl de mobile
 
 Para rodar:
 
-npm install
+npm install < br / >
 npx expo start
