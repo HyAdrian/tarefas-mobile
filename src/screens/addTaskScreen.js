@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Pressable } from 'react-native';
+import { View, Text, TextInput, Pressable } from 'react-native';
 import { TaskContext } from '../context/TaskContext';
+import styles from '../styles/styles';
 
 function AddTaskScreen({ navigation }) {
   const [task, setTask] = useState('');
@@ -43,45 +44,10 @@ function AddTaskScreen({ navigation }) {
         onChangeText={setList}
         />
         <Pressable style={styles.button} onPress={AddTask}>
-        <Text style={styles.buttonText}>AddTask</Text>
+        <Text style={styles.buttonText}>Adicionar Tarefa</Text>
         </Pressable>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#151515',
-    padding: 20,
-  },
-  label: {
-    fontSize: 18,
-    marginBottom: 10,
-    color: 'white'
-  },
-  input: {
-    width: '100%',
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
-    color: 'white',
-  },
-  button: {
-    backgroundColor: '#6200ee',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-});
 
 export default AddTaskScreen;
