@@ -31,13 +31,13 @@ function AddTaskScreen({ navigation }) {
         <TextInput
         style={styles.input}
         placeholder="Título da Tarefa"
-        placeholderTextColor="white"
+        placeholderTextColor="gray"
         value={task}
         onChangeText={setTask}
         />
         <TextInput
         style={styles.input}
-        placeholderTextColor="white"
+        placeholderTextColor="gray"
         placeholder="Insira o número da lista (1 ou 2)"
         keyboardType="numeric"
         value={list}
