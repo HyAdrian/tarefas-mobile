@@ -1,7 +1,8 @@
-import React, { useContext, useState,useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Button, Dimensions, Pressable } from 'react-native';
+import React, { useContext, useState, useEffect } from 'react';
+import { View, Text, FlatList, Button} from 'react-native';
 import { TaskContext } from '../context/TaskContext';
-const { width } = Dimensions.get('window');
+import PlusIcon from '../components/PlusIcon';
+import styles from '../styles/styles';
 
 function TaskListScreen({ navigation }) {
   const { tasks } = useContext(TaskContext);
@@ -13,12 +14,12 @@ function TaskListScreen({ navigation }) {
         <Button
           title="Lista 1"
           onPress={() => setSelectedList(1)}
-          color={selectedList === 1 ? '#6200ee' : '#000'} 
+          color={selectedList === 1 ? '#df2b53' : '#000'} 
         />
         <Button
           title="Lista 2"
           onPress={() => setSelectedList(2)}
-          color={selectedList === 2 ? '#6200ee' : '#000'} 
+          color={selectedList === 2 ? '#df2b53' : '#000'} 
         />
       </View>
       
@@ -31,47 +32,11 @@ function TaskListScreen({ navigation }) {
           </View>
         )}
       />
-      
-      <Pressable style={styles.button} onPress={() => navigation.navigate("AddTask")}>
-        <Text style={styles.buttonText}>AddTask</Text>
-      </Pressable>
+      <View style={styles.fab}>
+          <PlusIcon onPress={() => navigation.navigate("AddTask")}/>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: '#151515',
-    paddingTop: 20,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 20,
-  },
-  task: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: width * 0.9,
-    height: 80,
-    borderRadius: 10,
-    elevation: 5,
-    marginVertical: 10,
-  },
-  button: {
-    backgroundColor: '#6200ee',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-});
 
 export default TaskListScreen;
